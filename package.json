@@ -22,6 +22,7 @@
     "@ng-bootstrap/ng-bootstrap": "^13.0.0",
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.2.0",
+    "konva": "^8.3.11",
     "peaks.js": "^2.0.5",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

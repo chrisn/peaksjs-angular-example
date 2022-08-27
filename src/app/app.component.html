@@ -1,32 +1,24 @@
-<style>
-  #zoomview-container {
-    box-shadow: 3px 3px 20px #919191;
-    -moz-box-shadow: 3px 3px 20px #919191;
-    -webkit-box-shadow: 3px 3px 20px #919191;
-    margin: 24px 0 24px 0;
-    line-height: 0;
-    width: 1000px;
-    height: 200px;
-  }
+<div class="container">
+  <h1>
+    Peaks.js Angular Example
+  </h1>
 
-  #overview-container {
-    box-shadow: 3px 3px 20px #919191;
-    -moz-box-shadow: 3px 3px 20px #919191;
-    -webkit-box-shadow: 3px 3px 20px #919191;
-    margin: 0 0 24px 0;
-    line-height: 0;
-    width: 1000px;
-    height: 85px;
-  }
-</style>
+  <p>
+    This is a simple example of how to use <a href="https://github.com/bbc/peaks.js">Peaks.js</a> in an Angular application.
+  </p>
 
-<h1>{{ title }}</h1>
+  <p>
+    Audio content is copyright BBC, from the <a href="http://bbcsfx.acropolis.org.uk/?q=07023003">BBC Sound Effects</a> library,
+    used under the terms of the <a href="https://github.com/bbcarchdev/Remarc/blob/master/doc/2016.09.27_RemArc_Content%20licence_Terms%20of%20Use_final.pdf">RemArc Licence</a>.
+  </p>
 
-<p>Hello</p>
+  <h3>Select audio</h3>
 
-<div id="zoomview-container"></div>
-<div id="overview-container"></div>
+  <div class="btn-group" role="group" *ngFor="let audio of exampleAudio">
+    <button class="btn btn-primary" [class.active]="audio.id === selectedAudio.id" type="button" (click)="onSelect(audio)">
+      {{audio.name}}
+    </button>&nbsp;
+  </div>
 
-<audio id="audio" controls>
-  <source src="assets/07030039.mp3" type="audio/mpeg">
-</audio>
+  <waveform-view [selectedAudio]="selectedAudio"></waveform-view>
+</div>

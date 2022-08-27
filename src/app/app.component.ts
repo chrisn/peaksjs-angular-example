@@ -1,5 +1,24 @@
 import { Component } from '@angular/core';
-import Peaks, { PeaksInstance, PeaksOptions } from 'peaks.js';
+
+import ExampleAudio from './example-audio';
+
+const audioUrls: ExampleAudio[] = [
+  {
+    id: 1,
+    name: 'Bird song',
+    audioUrl: 'assets/07030039.mp3',
+    audioContentType: 'audio/mpeg',
+    waveformDataUrl: 'assets/07030039.dat'
+  },
+
+  {
+    id: 2,
+    name: 'Car passing',
+    audioUrl: 'assets/07023003.mp3',
+    audioContentType: 'audio/mpeg',
+    waveformDataUrl: 'assets/07023003-2channel.dat'
+  }
+];
 
 @Component({
   selector: 'app-root',
@@ -7,24 +26,11 @@ import Peaks, { PeaksInstance, PeaksOptions } from 'peaks.js';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Peaks.js Angular Example';
+  exampleAudio: ExampleAudio[] = audioUrls;
+  audio: ExampleAudio = audioUrls[0];
+  selectedAudio: ExampleAudio = audioUrls[0];
 
-  ngOnInit() {
-    const options: PeaksOptions = {
-      zoomview: {
-        container: document.getElementById('zoomview-container')
-      },
-      overview: {
-        container: document.getElementById('overview-container')
-      },
-      mediaElement: document.getElementById('audio')!,
-      dataUri: {
-        arraybuffer: 'assets/07030039.dat'
-      }
-    };
-
-    Peaks.init(options, function(err: Error, peaks?: PeaksInstance) {
-      console.log('Peaks ready');
-    });
+  onSelect(audio: ExampleAudio): void {
+    this.selectedAudio = audio;
   }
 }
