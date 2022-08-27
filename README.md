@@ -1,27 +1,38 @@
-# PeaksjsAngularExample
+# Peaks.js Angular Example
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
+This is a simple example of how to use [Peaks.js](https://github.com/bbc/peaks.js)
+in an Angular application.
 
-## Development server
+Note that this is just a demo and not a feature-complete reusable Angular component for Peaks.js.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Getting started
 
-## Code scaffolding
+Ensure you have Node.js 14.3.0 or later installed, then:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+git clone git@github.com:chrisn/peaksjs-angular-example.git
+cd peaksjs-angular-example
+npm install
+npm start
+```
 
-## Build
+This should open your web browser to view the demo at
+http://localhost:4200.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Copyright
 
-## Running unit tests
+Copyright 2022 Chris Needham
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# License
 
-## Running end-to-end tests
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    http://www.apache.org/licenses/LICENSE-2.0
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
