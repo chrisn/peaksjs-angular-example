@@ -16,7 +16,7 @@ npm install
 npm start
 ```
 
-This should open your web browser to view the demo at
+You can then open your web browser to view the demo at
 http://localhost:4200.
 
 # Copyright
