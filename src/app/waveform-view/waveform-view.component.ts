@@ -1,5 +1,21 @@
-import { AfterViewInit, Component, ElementRef, Input, SimpleChanges, ViewChild } from '@angular/core';
-import Peaks, { PeaksInstance, PeaksOptions, SetSourceOptions } from 'peaks.js';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
+
+import Peaks, {
+  PeaksInstance,
+  PeaksOptions,
+  Point,
+  SetSourceOptions,
+  Segment
+} from 'peaks.js';
 
 import ExampleAudio from '../example-audio';
 
@@ -12,15 +28,14 @@ import { createSegmentLabel } from './segment-label-factory';
   styleUrls: ['./waveform-view.component.css']
 })
 export class WaveformViewComponent implements AfterViewInit {
-
   @Input() selectedAudio!: ExampleAudio;
+  @Output() segmentsEmitter = new EventEmitter<Segment[]>();
+  @Output() pointsEmitter = new EventEmitter<Point[]>();
+
   @ViewChild("zoomviewContainer") zoomview!: ElementRef;
   @ViewChild("overviewContainer") overview!: ElementRef;
   @ViewChild("audio") audioElement!: ElementRef;
   peaks?: PeaksInstance;
-
-  constructor() {
-  }
 
   ngAfterViewInit(): void {
     this.initPeaks();
@@ -140,11 +155,9 @@ export class WaveformViewComponent implements AfterViewInit {
   }
 
   logMarkers(): void {
-    console.log('log markers');
-
-    // if (this.peaks) {
-    //   this.props.setSegments(this.peaks.segments.getSegments());
-    //   this.props.setPoints(this.peaks.points.getPoints());
-    // }
+    if (this.peaks) {
+      this.segmentsEmitter.emit(this.peaks.segments.getSegments());
+      this.pointsEmitter.emit(this.peaks.points.getPoints());
+    }
   }
 }

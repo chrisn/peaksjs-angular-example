@@ -20,5 +20,12 @@
     </button>&nbsp;
   </div>
 
-  <waveform-view [selectedAudio]="selectedAudio"></waveform-view>
+  <waveform-view
+    [selectedAudio]="selectedAudio"
+    (segmentsEmitter)="updateSegments($event)"
+    (pointsEmitter)="updatePoints($event)">
+  </waveform-view>
+
+  <segments-list [segments]="segments"></segments-list>
+  <points-list [points]="points"></points-list>
 </div>

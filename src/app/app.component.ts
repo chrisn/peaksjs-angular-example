@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Point, Segment } from 'peaks.js';
 
 import ExampleAudio from './example-audio';
 
@@ -29,7 +30,18 @@ export class AppComponent {
   exampleAudio: ExampleAudio[] = audioUrls;
   selectedAudio: ExampleAudio = audioUrls[0];
 
+  segments: Segment[] = [];
+  points: Point[] = [];
+
   onSelect(audio: ExampleAudio): void {
     this.selectedAudio = audio;
+  }
+
+  updateSegments(segments: Segment[]) {
+    this.segments = segments;
+  }
+
+  updatePoints(points: Point[]) {
+    this.points = points;
   }
 }
