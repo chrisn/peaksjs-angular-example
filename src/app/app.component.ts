@@ -27,7 +27,6 @@ const audioUrls: ExampleAudio[] = [
 })
 export class AppComponent {
   exampleAudio: ExampleAudio[] = audioUrls;
-  audio: ExampleAudio = audioUrls[0];
   selectedAudio: ExampleAudio = audioUrls[0];
 
   onSelect(audio: ExampleAudio): void {

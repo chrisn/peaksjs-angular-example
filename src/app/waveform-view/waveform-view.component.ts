@@ -17,7 +17,7 @@ export class WaveformViewComponent implements AfterViewInit {
   @ViewChild("zoomviewContainer") zoomview: ElementRef = {} as ElementRef;
   @ViewChild("overviewContainer") overview: ElementRef = {} as ElementRef;
   @ViewChild("audio") audioElement: ElementRef = {} as ElementRef;
-  peaks: PeaksInstance | undefined = undefined;
+  peaks?: PeaksInstance;
 
   constructor() {
   }
