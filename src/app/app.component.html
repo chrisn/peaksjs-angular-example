@@ -26,6 +26,6 @@
     (pointsEmitter)="updatePoints($event)">
   </waveform-view>
 
-  <segments-list [segments]="segments"></segments-list>
-  <points-list [points]="points"></points-list>
+  <segments-list [segments]="segments" *ngIf="segments.length > 0"></segments-list>
+  <points-list [points]="points" *ngIf="points.length > 0"></points-list>
 </div>
