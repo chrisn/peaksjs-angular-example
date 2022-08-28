@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, SimpleChanges, ViewChild } from '@angular/core';
-import Peaks, { PeaksInstance, PeaksOptions } from 'peaks.js';
+import Peaks, { PeaksInstance, PeaksOptions, SetSourceOptions } from 'peaks.js';
 
 import ExampleAudio from '../example-audio';
 
@@ -74,7 +74,8 @@ export class WaveformViewComponent implements AfterViewInit {
   }
 
   onPeaksReady(): void {
-    console.log('Peaks ready');
+    // Do something when the Peaks instance is ready for use
+    console.log("Peaks.js is ready");
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -88,6 +89,21 @@ export class WaveformViewComponent implements AfterViewInit {
       if (!audioChange.previousValue ||
           audioChange.currentValue.audioUrl !== audioChange.previousValue.audioUrl) {
         this.selectedAudio = audioChange.currentValue;
+
+        if (this.peaks) {
+          const options: SetSourceOptions = {
+            mediaUrl: audioChange.currentValue.audioUrl,
+            dataUri: {
+              arraybuffer: audioChange.currentValue.waveformDataUrl
+            }
+          };
+
+          this.peaks.setSource(options, (error: Error) => {
+            if (error) {
+              console.error(error);
+            }
+          });
+        }
         this.initPeaks();
       }
     }
