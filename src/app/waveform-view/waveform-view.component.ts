@@ -49,8 +49,6 @@ export class WaveformViewComponent implements AfterViewInit {
 
     this.audioElement.nativeElement.src = this.selectedAudio.audioUrl;
 
-    this.destroyPeaks();
-
     Peaks.init(options, (err, peaks) => {
       if (err) {
         console.error(err);
@@ -63,10 +61,6 @@ export class WaveformViewComponent implements AfterViewInit {
   }
 
   ngOnDestroy(): void {
-    this.destroyPeaks();
-  }
-
-  destroyPeaks(): void {
     if (this.peaks) {
       this.peaks.destroy();
       this.peaks = undefined;
@@ -104,7 +98,6 @@ export class WaveformViewComponent implements AfterViewInit {
             }
           });
         }
-        this.initPeaks();
       }
     }
   }
