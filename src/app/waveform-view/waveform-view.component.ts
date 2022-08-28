@@ -13,10 +13,10 @@ import { createSegmentLabel } from './segment-label-factory';
 })
 export class WaveformViewComponent implements AfterViewInit {
 
-  @Input() selectedAudio: ExampleAudio = {} as ExampleAudio;
-  @ViewChild("zoomviewContainer") zoomview: ElementRef = {} as ElementRef;
-  @ViewChild("overviewContainer") overview: ElementRef = {} as ElementRef;
-  @ViewChild("audio") audioElement: ElementRef = {} as ElementRef;
+  @Input() selectedAudio!: ExampleAudio;
+  @ViewChild("zoomviewContainer") zoomview!: ElementRef;
+  @ViewChild("overviewContainer") overview!: ElementRef;
+  @ViewChild("audio") audioElement!: ElementRef;
   peaks?: PeaksInstance;
 
   constructor() {
@@ -78,7 +78,7 @@ export class WaveformViewComponent implements AfterViewInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (!this.audioElement.nativeElement) {
+    if (!this.audioElement) {
       return;
     }
 
