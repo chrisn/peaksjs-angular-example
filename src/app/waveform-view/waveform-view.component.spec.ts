@@ -14,6 +14,13 @@ describe('WaveformViewComponent', () => {
 
     fixture = TestBed.createComponent(WaveformViewComponent);
     component = fixture.componentInstance;
+    component.selectedAudio = {
+      id: 1,
+      name: 'Bird song',
+      audioUrl: 'assets/07030039.mp3',
+      audioContentType: 'audio/mpeg',
+      waveformDataUrl: 'assets/07030039.dat'
+    };
     fixture.detectChanges();
   });
 
